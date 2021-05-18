@@ -4,8 +4,8 @@
     <div class="container">
         @if (Laravel\Fortify\Features::canUpdateProfileInformation())
             <div class="row justify-content-center">
-                <div class="col-md-4 grid-margin stretch-card">
-                    <div class="card">
+                <div class="col-md-5 col-lg-4">
+                    <div class="card h-100">
                         <div class="card-header">Profile Information</div>
                         <div class="card-body">
                             <p>Update your account's profile information and email address.
@@ -13,21 +13,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 grid-margin stretch-card">
+                <div class="col-md-7 col-lg-8">
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" action="{{ route('profile.update') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-10 col-lg-8">
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" id="name" name="name"
                                                value="{{ $user->name }}" required>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-10 col-lg-8">
                                         <label for="email">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
                                                value="{{ $user->email }}" required>
@@ -54,8 +54,8 @@
         @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
             <div class="dropdown-divider"></div>
             <div class="row">
-                <div class="col-md-4 grid-margin stretch-card">
-                    <div class="card">
+                <div class="col-md-5 col-lg-4">
+                    <div class="card h-100">
                         <div class="card-header">
                             Update Password
                         </div>
@@ -65,28 +65,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 grid-margin stretch-card">
+                <div class="col-md-7 col-lg-8">
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" action="{{ route('user-password.update') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-10 col-lg-8">
                                         <label for="password">Current Password</label>
                                         <input id="password" class="form-control" name="password" type="password"
                                                required>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-10 col-lg-8">
                                         <label for="new-password">New Password</label>
                                         <input id="new-password" class="form-control" name="newPassword" type="password"
                                                required>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-10 col-lg-8">
                                         <label for="password-confirm">{{ __('Confirm Password') }}</label>
                                         <input id="password-confirm" class="form-control"
                                                name="newPassword_confirmation" type="password" required>
@@ -121,8 +121,8 @@
 
         <div class="dropdown-divider"></div>
         <div class="row">
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
+            <div class="col-md-5 col-lg-4">
+                <div class="card h-100">
                     <div class="card-header">
                         Delete Account
                     </div>
@@ -132,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 grid-margin stretch-card">
+            <div class="col-md-7 col-lg-8">
                 <div class="card">
                     <div class="card-body">
                         <p class="card-description">Once your account is deleted, all of its resources and data will be
