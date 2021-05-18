@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Contracts\View\View;
 
 class UserProfileController extends Controller
 {
-    /**
-     * Show the user profile screen.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
-     */
-    public function show(Request $request)
+    public function show(Request $request): View
     {
         return view('profile.show', [
             'request' => $request,
@@ -23,13 +19,7 @@ class UserProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user profile information.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
-     */
-    public function profileInformationUpdate(Request $request)
+    public function profileInformationUpdate(Request $request): RedirectResponse
     {
         $request->validate(
             [
@@ -48,13 +38,7 @@ class UserProfileController extends Controller
         return redirect()->route('profile.show')->with('profile_updated', 'Profile updated!');
     }
 
-        /**
-         * Update the user password.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @return \Illuminate\View\View
-         */
-    public function passwordUpdate(Request $request)
+    public function passwordUpdate(Request $request): RedirectResponse
     {
         $user = $request->user();
 
@@ -73,13 +57,7 @@ class UserProfileController extends Controller
         }
     }
 
-    /**
-     * Delete the user profile.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy(Request $request)
+    public function destroy(Request $request): RedirectResponse
     {
         $user = $request->user();
 
